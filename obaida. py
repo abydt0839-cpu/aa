@@ -1,0 +1,28 @@
+dic = {
+    "username": "ali",
+    "pass": "1234567",
+    "name": "Ali Ahmed",
+    "age": 21,
+    "mail": "ali@mail.ru"
+}
+
+max_attempts = 3
+attempts = 0
+
+while attempts < max_attempts:
+    username = input("Enter Your Username: ")
+    password = input("Enter Your Password: ")
+    
+    if username == dic["username"] and password == dic["pass"]:
+        print(f"\nWelcome, {dic['name']}!")
+        print(f"Your Age is: {dic['age']}")
+        print(f"Your Email is: {dic['mail']}\n")
+        break
+    else:
+        attempts += 1
+        remaining = max_attempts - attempts
+        if remaining > 0:
+            print(f"> Incorrect username or password. Attempts left: {remaining}\n")
+        else:
+            print("Account locked! No more attempts allowed.\n")
+            dic.clear()
